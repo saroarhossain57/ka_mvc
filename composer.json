@@ -1,0 +1,17 @@
+{
+    "name": "ka_mvc/ka_mvc",
+    "description": "A basic MVC framework for learning and building portfolio websites.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "KaMvc\\KaMvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Saroar Hossain",
+            "email": "limonhossain57@gmail.com"
+        }
+    ],
+    "require": {}
+}
