@@ -1,4 +1,5 @@
 <?php
-echo "<pre>";
-print_r($_SERVER);
-echo "</pre>";
+// Add Autoloader php
+require_once 'vendor/autoload.php';
+
+// Boot Up The Application
