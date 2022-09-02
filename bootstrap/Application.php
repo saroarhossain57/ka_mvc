@@ -2,6 +2,7 @@
 namespace Bootstrap;
 
 use App\Providers\RouteServiceProvider;
+use App\Providers\AppServiceProvider;
 
 class Application {
 
@@ -19,6 +20,7 @@ class Application {
 
         // List of service providers
         $serviceProviders = [
+            AppServiceProvider::class,
             RouteServiceProvider::class
         ];
 
