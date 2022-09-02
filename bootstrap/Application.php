@@ -1,5 +1,7 @@
 <?php
-use Bootstrap;
+namespace Bootstrap;
+
+use App\Providers\RouteServiceProvider;
 
 class Application {
 
@@ -7,9 +9,24 @@ class Application {
     public static Application $app;
     public static $rootPath;
 
-    public function __construct($rootPath) {
+    public function __construct() {
         self::$app = $this;
-        self::$rootPath = $rootPath;
+        self::$rootPath = dirname(__DIR__);
+    }
+
+    // Run the application
+    public function run(){
+
+        // List of service providers
+        $serviceProviders = [
+            RouteServiceProvider::class
+        ];
+
+        // Run all listed service providers
+        foreach ($serviceProviders as $serviceProvider){
+            $serviceInstance = new $serviceProvider();
+            $serviceInstance->boot();
+        }
     }
 
     public static function getInstance(){
