@@ -1,11 +1,12 @@
 <?php 
 namespace App\Providers;
 
-use App\Abstraction\ServiceProvider;
+use App\Abstraction\ServiceProviders;
 
-class RouteServiceProvider extends ServiceProvider
+class RouteServiceProvider extends ServiceProviders
 {
-    public function boot(){
+    public function boot()
+    {
 
     }
 }

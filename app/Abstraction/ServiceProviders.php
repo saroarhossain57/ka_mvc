@@ -1,6 +1,6 @@
 <?php
 namespace App\Abstraction;
 
-abstract class ServiceProvider {
+abstract class ServiceProviders {
     public abstract function boot();
 }
