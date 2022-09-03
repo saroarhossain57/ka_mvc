@@ -6,7 +6,10 @@
         "psr-4": {
             "App\\": "app/",
             "Bootstrap\\": "bootstrap/"
-        }
+        },
+        "files": [
+            "app/Utilities/global-functions.php"
+        ]
     },
     "authors": [
         {
