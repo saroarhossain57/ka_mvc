@@ -19,7 +19,7 @@ class RouteServiceProvider extends ServiceProviders
         include_once Application::$rootPath . '/routes/routes.php';
 
         try {
-            $route->dispatchRoute();
+            echo $route->dispatchRoute();
         } catch (\Exception $e){
             echo 'Message: ' .$e->getMessage();
         }
