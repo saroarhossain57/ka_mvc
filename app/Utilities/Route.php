@@ -36,8 +36,6 @@ class Route
         $callback = $this->getMatchedCallback($path, $method);
 
         echo "<pre>";
-        echo var_dump($path);
-        echo var_dump($method);
         echo var_dump($this->routes);
         echo "<pre>";
     }
@@ -51,7 +49,13 @@ class Route
                 // Find the route
                 if($this->get_path_count($path) === $this->get_path_count($key)){
                     // Check if there any dynamic parameters in the path
-                    
+                    echo "<pre>";
+                    echo var_dump($path);
+                    echo var_dump($key);
+                    echo "<pre>";
+
+                    // If there is dynamic parameter in the $key
+
                 }
             }
 
