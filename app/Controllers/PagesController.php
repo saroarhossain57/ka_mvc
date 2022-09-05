@@ -21,6 +21,11 @@ class PagesController extends Controller
         return 'Hello From Page Controller ProductWithId method';
     }
 
+    public function productWithIdBottom()
+    {
+        return 'Hello From Page Controller productWithIdBottom method';
+    }
+
     public function contact()
     {
         return 'Hello From Page Controller Contact method';
