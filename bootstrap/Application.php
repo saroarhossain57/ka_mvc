@@ -1,6 +1,8 @@
 <?php
 namespace Bootstrap;
 
+use App\Http\Request;
+use App\Http\Response;
 use App\Providers\RouteServiceProvider;
 use App\Providers\AppServiceProvider;
 
@@ -9,10 +11,15 @@ class Application {
     private static $instance;
     public static Application $app;
     public static $rootPath;
+    public Request $request;
+    public Response $response;
 
     public function __construct() {
         self::$app = $this;
         self::$rootPath = dirname(__DIR__);
+
+        $this->request = new Request();
+        $this->response = new Response();
     }
 
     // Run the application
