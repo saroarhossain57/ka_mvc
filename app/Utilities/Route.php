@@ -35,8 +35,6 @@ class Route
 
         $callback = $this->getMatchedCallback($path, $method);
 
-
-
         if(is_callable($callback)){
             echo $callback();
         }
