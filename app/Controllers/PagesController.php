@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Abstraction\Controller;
+use App\Http\Request;
+use App\Http\Response;
 
 class PagesController extends Controller
 {
@@ -21,7 +23,7 @@ class PagesController extends Controller
         return 'Hello From Page Controller ProductWithId method';
     }
 
-    public function productWithIdBottom()
+    public function productWithIdBottom($id, Request $request, Response $response)
     {
         return 'Hello From Page Controller productWithIdBottom method';
     }

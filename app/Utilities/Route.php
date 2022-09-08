@@ -55,10 +55,10 @@ class Route
                 $routeCallbackMethod = $callback[1];
             }
 
-            if(isset($callback['params'])){
-                return call_user_func_array([$routeCallbackObj, $routeCallbackMethod], array());
+            if(isset($callback['params']) && is_array($callback['params'])){
+                return call_user_func_array([$routeCallbackObj, $routeCallbackMethod], array_merge(array_values($callback['params']), array($this->request, $this->response)));
             } else {
-                return call_user_func_array([$routeCallbackObj, $routeCallbackMethod], array());
+                return call_user_func_array([$routeCallbackObj, $routeCallbackMethod], array($this->request, $this->response));
             }
         }
 
