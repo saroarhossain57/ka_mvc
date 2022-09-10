@@ -10,12 +10,12 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return 'Hello From Page Controller Index method';
+        return view('hello', ['variable1', 'Saroar Hossain']);
     }
 
     public function productShirt()
     {
-        return 'Hello From Page Controller productShirt method';
+        return view('product.tshirt');
     }
 
     public function productWithId()
