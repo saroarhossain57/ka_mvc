@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Abstraction\ServiceProviders;
+use Bootstrap\Application;
 use Symfony\Component\Dotenv\Dotenv;
 
 class AppServiceProvider extends ServiceProviders
@@ -15,6 +16,6 @@ class AppServiceProvider extends ServiceProviders
 
     private function loadEnv(){
         $dotenv = new Dotenv();
-        $dotenv->load(__DIR__.'/.env');
+        $dotenv->load(Application::$rootPath . DIRECTORY_SEPARATOR . '.env');
     }
 }

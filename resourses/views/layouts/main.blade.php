@@ -25,19 +25,19 @@
             </ul>
 
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <?php if(\App\Core\Application::isGuest()) : ?>
+                <?php //if(\App\Core\Application::isGuest()) : ?>
                 <li class="nav-item">
                     <a class="nav-link active" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/register">Register</a>
                 </li>
-                <?php else: ?>
+                <?php// else: ?>
                 <li class="nav-item">
                     <a class="nav-link active" href="/profile">Profile</a>
                 </li>
-                <li class="nav-item"><?php echo \App\Core\Application::$app->user->getDisplayName(); ?></li>
-                <?php endif; ?>
+                <li class="nav-item"><?php //echo \App\Core\Application::$app->user->getDisplayName(); ?></li>
+                <?php //endif; ?>
 
 
             </ul>
@@ -45,8 +45,7 @@
     </div>
 </nav>
 
-
-{{content}}
+@yield('contents')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
