@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Abstraction\Controller;
 use App\Http\Request;
 use App\Http\Response;
+use App\Models\Contact;
 
 class PagesController extends Controller
 {
@@ -30,6 +31,8 @@ class PagesController extends Controller
 
     public function contact()
     {
+        $contact = new Contact();
+
         return 'Hello From Page Controller Contact method';
     }
 
