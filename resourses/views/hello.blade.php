@@ -11,5 +11,5 @@
     @else
         It's not true
     @endif
-    
+
 @endsection

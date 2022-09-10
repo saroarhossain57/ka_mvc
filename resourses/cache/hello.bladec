@@ -11,6 +11,6 @@
  <?php else: ?>
  It's not true
  <?php endif; ?>
- 
+
 <?php $this->stopSection(); ?>
 <?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.main'); } ?>
