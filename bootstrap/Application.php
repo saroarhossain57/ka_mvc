@@ -1,6 +1,7 @@
 <?php
 namespace Bootstrap;
 
+use App\Classes\Database;
 use App\Http\Request;
 use App\Http\Response;
 use App\Providers\RouteServiceProvider;
@@ -13,6 +14,7 @@ class Application {
     public static $rootPath;
     public Request $request;
     public Response $response;
+    public Database $database;
 
     public function __construct() {
         self::$app = $this;
@@ -20,6 +22,7 @@ class Application {
 
         $this->request = new Request();
         $this->response = new Response();
+        $this->database = new Database();
     }
 
     // Run the application
