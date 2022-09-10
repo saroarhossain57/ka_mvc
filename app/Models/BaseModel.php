@@ -20,10 +20,6 @@ abstract class BaseModel
     abstract public static function primaryKey(): string;
 
     public function loadData($data){
-
-        echo "<pre>";
-        echo var_dump($data);
-        echo "<pre>";
 //        foreach ($data as $key => $value){
 //            if(property_exists($this, $key)){
 //                $this->{$key} = $value;
