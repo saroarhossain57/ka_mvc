@@ -37,7 +37,7 @@ class Route
 
         // Return 404 page if there is no route found
         if(!$callback){
-            return '404 page';
+            return view('404');
         }
 
         // Execute function from route file

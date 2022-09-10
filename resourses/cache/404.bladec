@@ -1,0 +1,9 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', '404'); ?>
+
+<?php $this->startSection('contents'); ?>
+ <h1>404 Not Found</h1>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.main'); } ?>
