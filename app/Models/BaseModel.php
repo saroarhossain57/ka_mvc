@@ -20,14 +20,20 @@ abstract class BaseModel
     abstract public static function primaryKey(): string;
 
     public function loadData($data){
-//        foreach ($data as $key => $value){
-//            if(property_exists($this, $key)){
-//                $this->{$key} = $value;
-//            }
-//        }
+
+        // Make the attributes
+        foreach (static::attributes() as $attribute){
+            $this->{$attribute} = '';
+        }
+
+        foreach ($data as $key => $value){
+            if(in_array($key, static::attributes())){
+                $this->{$key} = $value;
+            }
+        }
     }
 
-    public function save()
+    public function save() : bool
     {
         $tableName = static::tableName();
         $attributes = static::attributes();
