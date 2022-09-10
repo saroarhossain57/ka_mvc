@@ -6,6 +6,7 @@ use App\Http\Request;
 use App\Http\Response;
 use App\Providers\RouteServiceProvider;
 use App\Providers\AppServiceProvider;
+use Symfony\Component\Dotenv\Dotenv;
 
 class Application {
 
@@ -19,6 +20,9 @@ class Application {
     public function __construct() {
         self::$app = $this;
         self::$rootPath = dirname(__DIR__);
+
+        // Load Env
+        $this->loadEnv();
 
         $this->request = new Request();
         $this->response = new Response();
@@ -39,6 +43,11 @@ class Application {
             $serviceInstance = new $serviceProvider();
             $serviceInstance->boot();
         }
+    }
+
+    private function loadEnv(){
+        $dotenv = new Dotenv();
+        $dotenv->load(Application::$rootPath . DIRECTORY_SEPARATOR . '.env');
     }
 
     public static function getInstance(){

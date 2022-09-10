@@ -5,7 +5,7 @@ namespace App\Models;
 class Contact extends BaseModel
 {
 
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'contact';
     }
@@ -22,6 +22,6 @@ class Contact extends BaseModel
 
     public static function primaryKey(): string
     {
-        // TODO: Implement primaryKey() method.
+        return 'id';
     }
 }

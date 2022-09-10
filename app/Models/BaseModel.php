@@ -12,18 +12,32 @@ abstract class BaseModel
 
     public function __construct(){
         $this->database = Application::$app->database;
+        $this->loadData(Application::$app->request->getBody());
     }
 
     abstract public static function tableName();
     abstract public function attributes(): array;
     abstract public static function primaryKey(): string;
 
+    public function loadData($data){
+
+        echo "<pre>";
+        echo var_dump($data);
+        echo "<pre>";
+//        foreach ($data as $key => $value){
+//            if(property_exists($this, $key)){
+//                $this->{$key} = $value;
+//            }
+//        }
+    }
+
     public function save()
     {
         $tableName = static::tableName();
-        $attributes = $this->attributes();
+        $attributes = static::attributes();
+
         $params = array_map(fn($attr) => ":$attr", $attributes);
-        $statement = self::prepare("INSERT INTO $tableName (". implode(',', $attributes) .") VALUES(". implode(",", $params) .")");
+        $statement = $this->database->prepare("INSERT INTO $tableName (". implode(',', $attributes) .") VALUES(". implode(",", $params) .")");
 
         foreach ($attributes as $attribute){
             $statement->bindValue(":$attribute", $this->{$attribute});
@@ -40,19 +54,19 @@ abstract class BaseModel
         return $statement->fetchAll();
     }
 
-    public static function findOne($where)
+    public function findWhere($where)
     {
         $tableName = static::tableName();
         $attributes = array_keys($where);
         $sql = implode(array_map(fn($attr) => "$attr = :$attr", $attributes));
-        $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
+        $statement = $this->database->prepare("SELECT * FROM $tableName WHERE $sql");
         foreach ($where as $key => $item) {
             $statement->bindValue(":$key", $item);
         }
 
         $statement->execute();
 
-        return $statement->fetchObject(static::class);
+        return $statement->fetchAll();
     }
 
     public function addError($attibute, $message){

@@ -19,4 +19,5 @@ $route->get('/post/{id}', [PagesController::class, 'productWithId']);
 
 $route->get('/home/limon/tumpa', [PagesController::class, 'tumpaLimon']);
 
+$route->get('/contact', [PagesController::class, 'contact']);
 $route->post('/contact', [PagesController::class, 'contact']);
