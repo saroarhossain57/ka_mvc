@@ -6,7 +6,7 @@ use \App\Controllers\PagesController;
 /** @var Route $route */
 
 $route->get('/', function (){
-    return 'Welcome';
+    return view('hello', ['variable1', 'Saroar Hossain']);
 });
 
 $route->get('/home', [PagesController::class, 'index']);

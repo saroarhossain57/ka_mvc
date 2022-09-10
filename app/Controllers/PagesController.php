@@ -3,17 +3,19 @@
 namespace App\Controllers;
 
 use App\Abstraction\Controller;
+use App\Http\Request;
+use App\Http\Response;
 
 class PagesController extends Controller
 {
     public function index()
     {
-        return 'Hello From Page Controller Index method';
+        return view('hello', ['variable1', 'Saroar Hossain']);
     }
 
     public function productShirt()
     {
-        return 'Hello From Page Controller productShirt method';
+        return view('product.tshirt');
     }
 
     public function productWithId()
@@ -21,7 +23,7 @@ class PagesController extends Controller
         return 'Hello From Page Controller ProductWithId method';
     }
 
-    public function productWithIdBottom()
+    public function productWithIdBottom($id, Request $request, Response $response)
     {
         return 'Hello From Page Controller productWithIdBottom method';
     }

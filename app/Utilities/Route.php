@@ -35,11 +35,34 @@ class Route
 
         $callback = $this->getMatchedCallback($path, $method);
 
-
-
-        if(is_callable($callback)){
-            echo $callback();
+        // Return 404 page if there is no route found
+        if(!$callback){
+            return '404 page';
         }
+
+        // Execute function from route file
+        if(is_callable($callback)){
+            return $callback();
+        }
+
+        // Execute the method from controller function
+        if(is_array($callback)){
+            if(isset($callback['route'])){
+                $routeCallbackObj = new $callback['route'][0];
+                $routeCallbackMethod = $callback['route'][1];
+            } else {
+                $routeCallbackObj = new $callback[0];
+                $routeCallbackMethod = $callback[1];
+            }
+
+            if(isset($callback['params']) && is_array($callback['params'])){
+                return call_user_func_array([$routeCallbackObj, $routeCallbackMethod], array_merge(array_values($callback['params']), array($this->request, $this->response)));
+            } else {
+                return call_user_func_array([$routeCallbackObj, $routeCallbackMethod], array($this->request, $this->response));
+            }
+        }
+
+        return false;
     }
 
     private function getMatchedCallback($path, $method){
