@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Contact extends BaseModel
+class ContactModel extends BaseModel
 {
 
     public static function tableName(): string

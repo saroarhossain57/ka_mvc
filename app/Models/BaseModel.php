@@ -33,7 +33,7 @@ abstract class BaseModel
         }
     }
 
-    public function save()
+    public function save() : bool
     {
         $tableName = static::tableName();
         $attributes = static::attributes();
