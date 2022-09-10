@@ -20,6 +20,12 @@ abstract class BaseModel
     abstract public static function primaryKey(): string;
 
     public function loadData($data){
+
+        // Make the attributes
+        foreach (static::attributes() as $attribute){
+            $this->{$attribute} = '';
+        }
+
         foreach ($data as $key => $value){
             if(in_array($key, static::attributes())){
                 $this->{$key} = $value;
