@@ -32,7 +32,7 @@ class PagesController extends Controller
     public function contact()
     {
         $contactModel = new ContactModel();
-        
+
         $contactModel->save();
 
         return 'Hello From Page Controller Contact method';
